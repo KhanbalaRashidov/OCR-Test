@@ -24,8 +24,8 @@ namespace Regula.DocumentReader.NetCoreExample
                 ? File.ReadAllBytes(LICENSE_FILE_NAME)
                 : null;
 
-            var whitePage0 = File.ReadAllBytes("C:\\Users\\labusers\\Downloads\\front.jpeg");
-            var irPage0 = File.ReadAllBytes("C:\\Users\\labusers\\Downloads\\front.jpeg");
+            var whitePage0 = File.ReadAllBytes("C:\\Users\\labusers\\Downloads\\said2.png");
+            var irPage0 = File.ReadAllBytes("C:\\Users\\labusers\\Downloads\\said.png");
             //var uvPage0 = File.ReadAllBytes("C:\\Users\\labusers\\Downloads\\test3.png");
 
             var requestParams = new RecognitionParams()
@@ -44,7 +44,7 @@ namespace Regula.DocumentReader.NetCoreExample
             var request = new RecognitionRequest(requestParams, new List<ProcessRequestImage>
             {
                 new ProcessRequestImage(new ImageData(whitePage0), Light.WHITE),
-                new ProcessRequestImage(new ImageData(irPage0), Light.IR),
+                new ProcessRequestImage(new ImageData(irPage0), Light.WHITE),
                 //new ProcessRequestImage(new ImageData(uvPage0), Light.UV)
             });
             var api = licenseFromEnv != null

@@ -30,8 +30,20 @@ namespace Web.API.Controllers
             //    Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             //})
             //.ToArray();
-            var result = new IronOcr.IronTesseract().Read("C:\\Users\\labusers\\Downloads\\test3.png").Text;
-           return Ok(result);
+
+            var OCR = new IronTesseract();
+            OCR.Language = OcrLanguage.Azerbaijani;
+            string text;
+            using (var Input = new OcrInput("C:\\Users\\labusers\\Downloads\\yess.png"))
+            {
+                Input.DeNoise();
+                Input.Deskew();
+                var response = OCR.Read(Input);
+                text= response.Text;
+            }
+
+            var result = new IronOcr.IronTesseract().Read("C:\\Users\\labusers\\Downloads\\said2.png").Text;
+           return Ok(text);
 
         }
 
